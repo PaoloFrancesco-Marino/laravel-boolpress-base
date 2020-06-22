@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    
+
     <header>
         <nav class="navbar navbar-expand navbar-dark bg-dark">
             <div class="nav-brand text-white text-uppercase">
@@ -19,6 +19,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link text-uppercase" href="{{ route('home') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link text-uppercase" href=" {{ route('users.index') }}">Users</a></li>
+                <li class="nav-item"><a class="nav-link text-uppercase" href=" {{ route('posts.index') }}">Posts</a></li>
+
             </ul>
         </nav>
     </header>
