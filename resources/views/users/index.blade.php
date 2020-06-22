@@ -27,4 +27,20 @@
             @endforeach
         </tbody>
     </table>
+
+    <h2 class="mb-5">Blog Posts</h2>
+        <div>
+            @foreach ($users as $user)
+                <h3 class="mt-5 mb-3">{{ $user->name }}</h3>
+                <ul class="list-group mb-5">
+                    @foreach ($user->posts as $post)
+                        <li class="list-group-item"><h4>{{ $post->title }}</h4></li>
+                        <li class="list-group-item">{{ $post->post }}</li>
+                        <li class="list-group-item"><h5>Creato il {{ $post->created_at }}, Modificato il {{ $post->updated_at }}</h5></li>
+                    @endforeach
+                </ul>
+                
+            @endforeach
+        </div>
+
 @endsection
