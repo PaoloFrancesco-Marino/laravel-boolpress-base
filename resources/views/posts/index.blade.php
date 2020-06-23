@@ -16,13 +16,14 @@
                 <ul class="mb-5">
                     @foreach ($post->comments as $comment)
                         <h6 class="font-weight-bold">{{ $comment->name }}</h6>
+                        <span>creato il: {{ $comment->created_at }}</span>
                         <p>{{ $comment->comment }}</p>
                     @endforeach
                 </ul>
                 
             @endforeach
 
-            <h4>Pagine</h4>
+            <h4>Pages</h4>
             {{ $posts->links() }}
         </div>
 
