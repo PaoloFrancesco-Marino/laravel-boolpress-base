@@ -51,7 +51,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'post' =>'required',
-            'tags.*' => 'exists:tag,id'
+            'tags.*' => 'exists:tags,id'
         ]);
 
         // save to db

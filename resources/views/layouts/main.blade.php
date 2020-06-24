@@ -1,6 +1,6 @@
 @include('shared.header')
 
-<main class="container">
+<main class="container mb-5">
     @yield('main-content')
 </main>
 
