@@ -103,9 +103,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $tags = Tag::all();
+
+        return view('posts.edit', compact('post', 'tags'));
     }
 
     /**
@@ -115,9 +117,31 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        // validation (todo refactoring with function)
+        $request->validate([
+            'title' => 'required|max:255',
+            'post' =>'required',
+            'tags.*' => 'exists:tags,id'
+        ]);
+        
+        // request 
+        $data = $request->all();
+
+        // updated
+        $updated = $post->update($data);
+
+        // control check
+        if($updated) {
+            if(!empty($data['tags'])) {
+                $post->tags()->sync($data['tags']);
+            } else {
+                $post->tags()->detach();
+            }
+
+            return redirect()->route('posts.show', $post->slug);
+        }
     }
 
     /**
@@ -126,8 +150,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+
+        // refs
+        $title = $post->title;
+
+        // remove tag and post
+        $post->tags()->detach();
+        $deleted = $post->delete();
+
+        if($deleted) {
+            return redirect()->route('posts.index')->with('post-deleted', $title);
+        }
     }
 }

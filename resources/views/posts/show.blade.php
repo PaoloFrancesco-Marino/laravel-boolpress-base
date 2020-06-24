@@ -2,7 +2,17 @@
 
 @section('main-content')
     <h1 class="mt-5 mb-5">{{ $post->title }}</h1>
-    <p>{{ $post->post }}</p>
+
+    <a class="btn btn-primary" href="{{ route('posts.edit', $post->id) }}">Edit Post</a>
+
+    <form class="d-inline" action="{{ route('posts.destroy', $post->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <input class="btn btn-danger ml-2" type="submit" value="Delete Post">
+    </form>
+
+    <p class="mt-5">{{ $post->post }}</p>
 
     <h5>Comments</h5>
     <ul class="mb-5">
