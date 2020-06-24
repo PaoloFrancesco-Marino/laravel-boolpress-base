@@ -5,24 +5,15 @@
 
         <div> 
             @foreach ($posts as $post)
-                <ul class="list-group mb-2">
+                <ul class="list-group mb-5">
                     <li class="list-group-item"><h4 class="font-weight-bold">{{ $post->user->name}}</h4></li>
                     <li class="list-group-item"><h4>{{ $post->title }}</h4></li>
                     <li class="list-group-item">{{ $post->post }}</li>
                     <li class="list-group-item"><h5>Creato il {{ $post->created_at }}, Modificato il {{ $post->updated_at }}</h5></li>
-                </ul>
-                
-                <h5>Comments</h5>
-                <ul class="mb-5">
-                    @foreach ($post->comments as $comment)
-                        <h6 class="font-weight-bold">{{ $comment->name }}</h6>
-                        <span>creato il: {{ $comment->created_at }}</span>
-                        <p>{{ $comment->comment }}</p>
-                    @endforeach
-                </ul>
-                
+                    <li class="list-group-item"> <a class="btn btn-primary" href="{{ route('posts.show', $post->slug)}}">Read More...</a></li>
+                </ul>                
             @endforeach
-
+            
             <h4>Pages</h4>
             {{ $posts->links() }}
         </div>
