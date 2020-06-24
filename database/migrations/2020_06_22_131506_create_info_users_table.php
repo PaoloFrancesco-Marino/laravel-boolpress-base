@@ -20,7 +20,7 @@ class CreateInfoUsersTable extends Migration
             $table->string('avatar');
             $table->string('city');
             $table->string('country');
-            // $table->timestamps();
+            $table->timestamps();
 
             // relation
             $table->foreign('user_id')
