@@ -30,13 +30,13 @@
         </div>
 
         @foreach ($tags as $tag)
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="tags[]" id="tag-{{ $loop->iteration }}" value="{{ $tag->id }}">
+            <div class="form-check d-inline mr-2">
+                <input class="form-check-input " type="checkbox" name="tags[]" id="tag-{{ $loop->iteration }}" value="{{ $tag->id }}">
                 <label for="tag-{{ $loop->iteration }}">{{ $tag->name}}</label>
             </div>
         @endforeach
 
-        <input class="btn btn-primary mt-4" type="submit" value="Create Post">
+        <input class="btn btn-primary mt-4 d-block" type="submit" value="Create Post">
     
     </form>
 

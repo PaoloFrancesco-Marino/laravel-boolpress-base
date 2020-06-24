@@ -12,4 +12,13 @@
             <p>{{ $comment->comment }}</p>
         @endforeach
     </ul>
+
+    <section class="mt-5">
+        <h4>#Tags</h4>
+        @forelse ($post->tags as $tag)
+            <span class="badge badge-pill badge-info">{{ $tag->name }}</span>
+        @empty
+            <span class="badge badge-pill badge-warning">No #Tags</span>
+        @endforelse
+    </section>  
 @endsection
