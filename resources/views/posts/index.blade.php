@@ -14,8 +14,10 @@
                 </ul>                
             @endforeach
             
-            <h4>Pages</h4>
-            {{ $posts->links() }}
+            
+            <div class="wrap-pagination mt-5">
+                {{ $posts->links() }}
+            </div>
         </div>
 
 @endsection

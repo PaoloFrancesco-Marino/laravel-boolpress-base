@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-uppercase" href=" {{ route('posts.index') }}">Posts</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" href=" {{ route('posts.create') }}">New Post</a>
+                </li>
 
             </ul>
         </nav>
